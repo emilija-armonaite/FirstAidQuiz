@@ -1,22 +1,20 @@
-1: Įvyko nelaimingas atsitikimas, yra nukentėjusiųjų. Koks Jūsų pats pirmas veiksmas? (1 teisingas atsakymas)
+1: Įvyko nelaimingas atsitikimas, yra nukentėjusiųjų. Koks Jūsų pats pirmas veiksmas?
 	opt 0: Pradedate daryti pirminį gaivinimą
 	opt 1: Bandote kalbėti su nukentėjusiuoju
 	opt 2: Apsidarote, įvertinate aplinką ir galimus pavojus
 	opt 3: Bėgate ieškoti išorinio automationio defibriliatoriaus
 
-2: Įvertinus, kad aplinka saugi, einate prie nukentėjusiojo. Jis yra sąmoningas, atsakinėja į klausimus aiškiai ir rišliai. Ką darote toliau? (2 teisingi atsakymai)
+2: Įvertinus, kad aplinka saugi, einate prie nukentėjusiojo. Jis yra sąmoningas, atsakinėja į klausimus aiškiai ir rišliai. Ką darote toliau?
 	opt 0: Pradedate daryti pirminį gaivinimą
-	opt 1: Nukentėjusįjį nuraminate, apžiūrite ir jei reikia, suteikiate pirmąją pagalbą
+	opt 1: Nukentėjusįjį nuraminate, apžiūrite ir jei reikia, suteikiate pirmąją pagalbą, kviečiate medicinos pagalbą (GMP)
 	opt 2: Staigiai transportuojate nukentėjusįjį į kitą vietą, net jei aplinka saugi
 	opt 3: Defibriliuojate
-	opt 4: Jei būtina, kviečiate greitąją medicinos pagalbą
 
-3:  Įvertinus, kad aplinka saugi, einate prie nukentėjusiojo. Jis neatsako į jūsų užduodamus klausimus, yra nesąmoningas. Ką darote? (3 teisingi atsakymai)
-	opt 0: Pradedate gaivinimą
-	opt 1: Kviečiate greitąją medicinos pagalbą
+3:  Įvertinus, kad aplinka saugi, einate prie nukentėjusiojo. Jis neatsako į jūsų užduodamus klausimus, yra nesąmoningas. Ką darote?
+	opt 0: Pradedate gaivinimą, paprašote šalia esančio žmogaus (praeivio), kad kviestų GMP ir atneštų automatinį išorinį defibriliatorių (AID)
+	opt 1: Pradedate gaivinimą, tuo metu pats kviečiate greitąją medicinos pagalbą, net jei aplinkui daug žmonių, kurie tai galėtų padaryti
 	opt 2: Staigiai transportuojate nukentėjusįjį į kitą vietą, net jei aplinka saugi
 	opt 3: Bandote prakalbinti nukentėjusįjį
-	opt 4: Paprašote šalia esančio žmogaus (praeivio), kad kviestų greitąją medicinos pagalbą ir atneštų išorinį automatinį defibriliatorių
 
-4. Kokiu numeriu kviesite greitąją medicinos pagalbą (GMP)?
+4: Kokiu numeriu kviesite greitąją medicinos pagalbą (GMP)?
 	text:
