@@ -6,37 +6,33 @@ const questions = [{
     }, {
         question: "Įvertinus, kad aplinka saugi, einate prie nukentėjusiojo. Jis yra sąmoningas, atsakinėja į klausimus aiškiai ir rišliai. Ką darote toliau?",
         options: ["Pradedate daryti pirminį gaivinimą", "Nukentėjusįjį nuraminate, apžiūrite ir jei reikia, suteikiate pirmąją pagalbą, kviečiate GMP", "Staigiai transportuojate nukentėjusįjį į kitą vietą, net jei aplinka saugi", "Defibriliuojate"],
-        answer: 3
+        answer: 1
     }, {
-        question: "Įvertinus, kad aplinka saugi, einate prie nukentėjusiojo. Jis neatsako į jūsų užduodamus klausimus, yra nesąmoningas. Ką darote? (3 teisingi atsakymai)",
-        options: ["Pradedate gaivinimą", "Kviečiate greitąją medicinos pagalbą", "Apsidarote, įvertinate aplinką ir galimus pavojus", "Bėgate ieškoti išorinio automationio defibriliatoriaus"],
-        answer: 2
-    }
-    // }, {
-    // 	question:"",
-    // 	options:["","","",""],
-    // 	answer:2
-    // }, {
-    // 	question:"",
-    // 	options:["","","",""],
-    // 	answer:2
-    // }, {
-    // 	question:"",
-    // 	options:["","","",""],
-    // 	answer:2
-    // }, {
-    // 	question:"",
-    // 	options:["","","",""],
-    // 	answer:2
-    // }, {
-    // 	question:"",
-    // 	options:["","","",""],
-    // 	answer:2
-    // }, {
-    // 	question:"",
-    // 	options:["","","",""],
-    // 	answer:2
-    // }, {
+        question: "Įvertinus, kad aplinka saugi, einate prie nukentėjusiojo. Jis neatsako į jūsų užduodamus klausimus, yra nesąmoningas. Ką darote?",
+        options: ["Pradedate gaivinimą, paprašote šalia esančio žmogaus (praeivio), kad kviestų GMP ir atneštų automatinį išorinį defibriliatorių (AID)", "Pradedate gaivinimą, tuo metu pats kviečiate greitąją medicinos pagalbą, net jei aplinkui daug žmonių, kurie tai galėtų padaryti", "Staigiai transportuojate nukentėjusįjį į kitą vietą, net jei aplinka saugi", "Bandote prakalbinti nukentėjusįjį"],
+        answer: 0
+    }, {
+    	question:"Bendrosios pagalbos numeris 112:",
+    	options:["Naudojamas tik Lietuvoje","Naudojamas visoje Europoje"],
+    	answer: 1
+    }, {
+    	question:"Paskambinus bendrosios pagalbos numeriu 112 negalima padėti ragelio, kol neleis operatorius.",
+    	options:["Tiesa","Netiesa"],
+    	answer: 0
+    }, {
+    	question:"Teisingas pradinio gaivinimo algoritmas:",
+    	options:["Kraujotakos užtikrinimas (Circulation), kvėpavimo užtikrinimas (Breathing), kvėpavimo takų atvėrimas (Airway)","Kvėpavimo takų atvėrimas (Airway), kraujotakos užtikrinimas (Circulation), kvėpavimo užtikrinimas (Breathing)","Kvėpavimo takų atvėrimas (Airway), kvėpavimo užtikrinimas (Breathing), kraujotakos užtikrinimas (Circulation)"],
+    	answer: 2
+    }, {
+    	question:"Paspaudimus ir įpūtimus reikia kartoti santykiu 30:2:",
+    	options:["Tiesa","Netiesa"],
+    	answer: 1
+    }, {
+    	question:"Krūtinė spaudžiama visa rankų jėga, paspaudimų gylis turi būti iki 3cm:",
+    	options:["Tiesa","Netiesa","",""],
+    	answer: 1
+    } 
+    //, {
     // 	question:"",
     // 	options:["","","",""],
     // 	answer:2
@@ -75,13 +71,13 @@ function getNewQ() {
     currentQ = qNumber;
     question.innerHTML = currentQ.question;
 
-// gauname pozicija klausimo is possibleQ listo
+    // gauname pozicija klausimo is possibleQ listo
     const index = possibleQ.indexOf(qNumber);
-// kad nesikartotu klausimai, tai istriname qNumber is possibleQ
-   	possibleQ.splice(index,1);
-// console.log(qNumber);
+    // kad nesikartotu klausimai, tai istriname qNumber is possibleQ
+    possibleQ.splice(index, 1);
+    // console.log(qNumber);
     countQ++;
-//gauname klausimo pasirinkimus
+    //gauname klausimo pasirinkimus
 }
 
 function nextQ() {
