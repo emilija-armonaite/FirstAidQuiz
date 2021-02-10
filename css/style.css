@@ -105,3 +105,6 @@ body {
   display: none;
 }
 
+.options div:hover {
+  background-color: darkgray;
+}
