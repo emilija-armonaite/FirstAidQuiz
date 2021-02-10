@@ -15,16 +15,17 @@
     <!-- Custom styles for this template -->
     <link href="css/style.css" rel="stylesheet">
   </head>
-  <body class="d-flex h-100 text-center text-white bg-dark">
+  <body >
+    <!-- body class="d-flex h-100 text-center text-white bg-dark" -->
     <!-- header -->
     <div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
       <header class="mb-auto">
-        <div>
-          <h3 class="float-md-start mb-0">Cover</h3>
+        <div class="float-md-start">
+          <img src="img/heart-with-electrocardiogram.png" style="height: 100px" alt="heart">
         </div>
       </header>
-      <!-- main-box -->
-      <div class="filter">
+      <!-- main quiz box -->
+      <div class="quiz-box">
         <div class="main box hide px-3 text-center">
           <h1 class="mx-auto mb-5 text-uppercase">Pirmoji pagalba</h1>
           <p class="lead">Mokėjimas tinkamai atlikti pradinį gaivinimą yra itin svarbu gelbstint žmogaus gyvybę. Pasitikrinkite ką jau žinote apie pirmają pagalbą ir .. nuolatos tobulėkite :) </p>
@@ -37,41 +38,41 @@
           <h4>question</h4>
         </div>
         <div class="options" id="options">
-          <div class="form-check">
+          <!-- <div class="form-check">
             <input class="form-check-input" type="radio" name="flexRadioDefault" id="first">
-            <label class="form-check-label" for="first">opt</label>
+            <label class="form-check-label" for="first"></label>
           </div>
           <div class="form-check">
             <input class="form-check-input" type="radio" name="flexRadioDefault" id="second" checked>
-            <label class="form-check-label" for="second">opt</label>
+            <label class="form-check-label" for="second"></label>
           </div>
           <div class="form-check">
             <input class="form-check-input" type="radio" name="flexRadioDefault" id="third" checked>
-            <label class="form-check-label" for="third">opt</label>
+            <label class="form-check-label" for="third"></label>
           </div>
           <div class="form-check">
             <input class="form-check-input" type="radio" name="flexRadioDefault" id="fourth" checked>
-            <label class="form-check-label" for="fourth">opt</label>
-          </div>
+            <label class="form-check-label" for="fourth"></label>
+          </div> -->
         </div>
         <div class="next" id="next">
-          <button type="button" class="btn btn-outline-danger btn-lg mt-3" id="next">Kitas klausimas</button>
+          <button type="button" onclick="nextQ()" class="btn btn-outline-danger btn-lg mt-3" id="next">Kitas klausimas</button>
         </div>
-      
-      <!-- results -->
-      <div class="results box hide">
-        <h1 class="mx-auto my-0 text-uppercase">Rezultatai</h1>
-        <p class="lead">Mokėjimas tinkamai atlikti pradinį gaivinimą yra itin svarbu gelbstint žmogaus gyvybę. Pasitikrinkite ką jau žinote apie pirmają pagalbą ir .. nuolatos tobulėkite :) </p>
-        <p class="lead">
-          <a href="#" class="btn btn-outline-danger btn-lg mt-3">Bandyti dar kartą</a>
-        </p>
+        
+        <!-- results -->
+        <div class="results box hide">
+          <h1 class="mx-auto my-0 text-uppercase">Rezultatai</h1>
+          <p class="lead"></p>
+          <p class="lead">
+            <a href="#" class="btn btn-outline-danger btn-lg mt-3">Bandyti dar kartą</a>
+          </p>
+        </div>
       </div>
-    </div>
       <!-- footer -->
-      <footer class="mt-auto text-white-50">
+      <!--       <footer class="mt-auto text-white-50">
         <p>Cover template for <a href="https://getbootstrap.com/" class="text-white">Bootstrap</a>, by <a href="https://twitter.com/mdo" class="text-white">@mdo</a>.</p>
       </footer>
-    </div>
+    </div> -->
     <script src="js/main.js"></script>
   </body>
 </html>

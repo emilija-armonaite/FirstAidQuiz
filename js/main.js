@@ -12,26 +12,26 @@ const questions = [{
         options: ["Pradedate gaivinimą, paprašote šalia esančio žmogaus (praeivio), kad kviestų GMP ir atneštų automatinį išorinį defibriliatorių (AID)", "Pradedate gaivinimą, tuo metu pats kviečiate greitąją medicinos pagalbą, net jei aplinkui daug žmonių, kurie tai galėtų padaryti", "Staigiai transportuojate nukentėjusįjį į kitą vietą, net jei aplinka saugi", "Bandote prakalbinti nukentėjusįjį"],
         answer: 0
     }, {
-    	question:"Bendrosios pagalbos numeris 112:",
-    	options:["Naudojamas tik Lietuvoje","Naudojamas visoje Europoje"],
-    	answer: 1
+        question: "Bendrosios pagalbos numeris 112:",
+        options: ["Naudojamas tik Lietuvoje", "Naudojamas visoje Europoje"],
+        answer: 1
     }, {
-    	question:"Paskambinus bendrosios pagalbos numeriu 112 negalima padėti ragelio, kol neleis operatorius.",
-    	options:["Tiesa","Netiesa"],
-    	answer: 0
+        question: "Paskambinus bendrosios pagalbos numeriu 112 negalima padėti ragelio, kol neleis operatorius.",
+        options: ["Tiesa", "Netiesa"],
+        answer: 0
     }, {
-    	question:"Teisingas pradinio gaivinimo algoritmas:",
-    	options:["Kraujotakos užtikrinimas (Circulation), kvėpavimo užtikrinimas (Breathing), kvėpavimo takų atvėrimas (Airway)","Kvėpavimo takų atvėrimas (Airway), kraujotakos užtikrinimas (Circulation), kvėpavimo užtikrinimas (Breathing)","Kvėpavimo takų atvėrimas (Airway), kvėpavimo užtikrinimas (Breathing), kraujotakos užtikrinimas (Circulation)"],
-    	answer: 2
+        question: "Teisingas pradinio gaivinimo algoritmas:",
+        options: ["Kraujotakos užtikrinimas (Circulation), kvėpavimo užtikrinimas (Breathing), kvėpavimo takų atvėrimas (Airway)", "Kvėpavimo takų atvėrimas (Airway), kraujotakos užtikrinimas (Circulation), kvėpavimo užtikrinimas (Breathing)", "Kvėpavimo takų atvėrimas (Airway), kvėpavimo užtikrinimas (Breathing), kraujotakos užtikrinimas (Circulation)"],
+        answer: 2
     }, {
-    	question:"Paspaudimus ir įpūtimus reikia kartoti santykiu 30:2:",
-    	options:["Tiesa","Netiesa"],
-    	answer: 1
+        question: "Paspaudimus ir įpūtimus reikia kartoti santykiu 30:2:",
+        options: ["Tiesa", "Netiesa"],
+        answer: 1
     }, {
-    	question:"Krūtinė spaudžiama visa rankų jėga, paspaudimų gylis turi būti iki 3cm:",
-    	options:["Tiesa","Netiesa","",""],
-    	answer: 1
-    } 
+        question: "Krūtinė spaudžiama visa rankų jėga, paspaudimų gylis turi būti iki 3cm:",
+        options: ["Tiesa", "Netiesa"],
+        answer: 1
+    }
     //, {
     // 	question:"",
     // 	options:["","","",""],
@@ -47,16 +47,17 @@ const questions = [{
     // },
 
 
-]
+];
 
 const question = document.querySelector(".question h4");
-const option = document.querySelector(".option");
+const option = document.querySelector(".options");
 
 let countQ = 0;
 let currentQ;
 let possibleQ = [];
+let possibleOpt = [];
 
-// sukeliame visus galimi klausimai i lista (possibleQ)
+// sukeliame visus galimus klausimaus i lista - possibleQ
 
 function setPossibleQ() {
     const total = questions.length;
@@ -76,8 +77,26 @@ function getNewQ() {
     // kad nesikartotu klausimai, tai istriname qNumber is possibleQ
     possibleQ.splice(index, 1);
     // console.log(qNumber);
+    // console.log(possibleQ);
+
+    //gauname klausimo pasirinkimus, pasirinkimju ilgi
+    const optionLenght = currentQ.options.length;
+    // sukeliame pasirinkimus i possibleOpt lista
+    for (let i = 0; i < optionLenght; i++) {
+        possibleOpt.push(i);
+    }
+
+
+    // atvaizduoti pasirinkimus html
+    for (let i=0; i < optionLenght; i++){
+        const opt = document.createElement("div");
+        opt.innerHTML = currentQ.options[i];
+        opt.id = i;
+        opt.className = "form-check";
+        option.appendChild(opt);
+    }
+
     countQ++;
-    //gauname klausimo pasirinkimus
 }
 
 function nextQ() {
@@ -86,6 +105,7 @@ function nextQ() {
     } else {
         getNewQ();
     }
+
 }
 
 
@@ -94,13 +114,12 @@ window.onload = function() {
     setPossibleQ();
     //iskviesime nauja klausima
     getNewQ();
-}
+};
 
 
 
 
-// let optionDelay = 0.2; 
-// optionDelay += 0.2;
+
 
 const startButton = document.getElementById("start");
-const nextButton = document.getElementById("next");
+// const nextButton = document.getElementById("next");
