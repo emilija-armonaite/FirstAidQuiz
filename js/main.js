@@ -1,4 +1,5 @@
 // kuriame objektu (klausimu) lista
+
 const questions = [{
         question: "Įvyko nelaimingas atsitikimas, yra nukentėjusiųjų. Koks Jūsų pats pirmas veiksmas?",
         options: ["Pradedate daryti pirminį gaivinimą",
@@ -47,7 +48,7 @@ const questions = [{
         options: ["Tiesa",
             "Netiesa"
         ],
-        answer: 1
+        answer: 0
     }, {
         question: "Krūtinė spaudžiama visa rankų jėga, paspaudimų gylis turi būti iki 3cm:",
         options: ["Tiesa",
@@ -80,6 +81,9 @@ let currentQ;
 let possibleQ = [];
 let possibleOpt = [];
 
+// let allQuestions = []; 
+// let allOptions = [];
+
 // sukeliame visus galimus klausimaus i lista - possibleQ
 
 function setPossibleQ() {
@@ -89,7 +93,25 @@ function setPossibleQ() {
     }
 }
 
+
+    //
+    // bandymas rasyti trumpiau
+// function getNewQ() {
+//     const total = questions.length;
+//     for (let i = 0; i < total; i++) {
+//         let q = questions[i].q;
+//         question.innerHTML = q;
+//         let o = questions[i].options;
+//         option.appendChild(document.createElement("br"));
+//                 for ( var opt in options ) {
+        
+//       }
+//     }
+// }
+
+
 // gauname atsitiktini klausima 
+
 function getNewQ() {
     const qNumber = possibleQ[Math.floor(Math.random() * possibleQ.length)];
     currentQ = qNumber;
@@ -117,60 +139,58 @@ function getNewQ() {
         opt.id = i;
         opt.className = "form-check";
         option.appendChild(opt);
-        opt.setAttribute("onclick", "result(this)");
+        opt.setAttribute("onclick", "getResult(this)");
     }
 
     countQ++;
+
 }
 
-//gauname vartotojo paspaudima
-function result(chosenOpt) {
+
+
+// gauname vartotojo paspaudima i console, pazymime vartotojo pasirinkima spalva (teisingai-zalia, neteisingai-raudona)
+let rightAnswers = 0;
+
+function getResult(chosenOpt) {
 
     const id = parseInt(chosenOpt.id);
     if (id === currentQ.answer) {
         console.log("Teisingai");
+        chosenOpt.style.backgroundColor = "green";
+        rightAnswers++;
+        console.log(rightAnswers);
+        // getNewQ();
     } else {
         console.log("Neteisingai");
+        chosenOpt.style.backgroundColor = "darkred";
+        // getNewQ();
     }
-}
 
-//pakeiciame kursoriu, kai vartotojas uzeina ant pasirinkimo
-
-function changeCursorToPointer(chosenOpt) {
-var selected = chosenOpt.selectedIndex;
-  document.body.style.cursor = selected.options[chosenOpt].text;
 }
 
 
+// function changeAnsweredColor(){
+//     document.querySelector(".options").style.color = "green";
+// }
 
 
 
+//pakeiciame kursoriu i pointer, kai vartotojas uzeina ant pasirinkimo
+
+function setCursorToPointer() {
+    document.querySelector(".options").style.cursor = "pointer";
+}
 
 
+function theEnd() {
+    question.classList.add("hide");
+    results.classList.remove("hide");
+}
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-function nextQ() {
+function getNextQ() {
     if (countQ === questions.length) {
-        console.log("The end");
+        console.log("Klausimų pabaiga");
+        theEnd();
     } else {
         getNewQ();
     }
@@ -181,7 +201,7 @@ function nextQ() {
 window.onload = function() {
     // gauname visus klausimus liste (possibleQ)
     setPossibleQ();
-    //iskviesime nauja klausima
+    // iskviesime nauja klausima
     getNewQ();
 };
 
@@ -190,5 +210,36 @@ window.onload = function() {
 
 
 
-const startButton = document.getElementById("start");
+// const startButton = document.getElementById("start");
 // const nextButton = document.getElementById("next");
+
+
+
+
+
+
+
+
+
+// for ( var i = 0; i < questions.length; i++ ) {
+//   var question = questions[i].question;
+//   document.write ( question );
+//   var options = questions[i].options;
+//   document.body.appendChild(document.createElement("br"));
+//    var name = "div"+i; 
+//   for ( var opt in options ) {
+
+//     var radioEle = document.createElement("input");
+//     radioEle.type = "div";          
+//     radioEle.value = options[opt];
+//     radioEle.name = name;
+//     document.body.appendChild(radioEle);
+//     var label = document.createElement("Label");
+//     label.innerHTML = options[opt];
+//     document.body.appendChild(label);
+//     document.body.appendChild(document.createElement("br"));
+//   }
+
+//   document.body.appendChild(document.createElement("br"));
+
+// }
