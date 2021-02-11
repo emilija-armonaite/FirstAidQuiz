@@ -56,13 +56,13 @@ body {
 
 /* main */
 
-/* .box::before,
+.box::before,
 .box::after {
   content: "";
   clear: both;
   display: table;
 
-} */
+}
 
  .box.hide {
   display: none;
@@ -91,8 +91,14 @@ body {
 }
 
 /* results */
-.results.hide {
+.results.hide, .quiz.hide {
   display: none;
+}
+
+
+.results {
+width: 20em;
+height: 300px;
 }
 
 .options div:hover {

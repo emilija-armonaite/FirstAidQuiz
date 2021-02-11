@@ -7,7 +7,8 @@ const questions = [{
             "Apsidarote, įvertinate aplinką ir galimus pavojus",
             "Bėgate ieškoti išorinio automationio defibriliatoriaus"
         ],
-        answer: 2
+        answer: 2,
+        additionalInfo: "Prieš teikdami pirmąją pagalbą, įvertinkite situaciją ir įsitikinkite, kad tai yra saugu (jei situacija yra pavojinga Jūsų gyvybei ar sveikatai, pavyzdžiui: pravažiuojantis transportas, griūvantys, krentantys objektai, gaisras, elektra, kenksmingos medžiagos, nukentėjusysis yra agresyvus, galite užsikrėsti infekcine liga – šiais atvejais pirmiausia reikia užtikrinti saugumą)."
     }, {
         question: "Įvertinus, kad aplinka saugi, einate prie nukentėjusiojo. Jis yra sąmoningas, atsakinėja į klausimus aiškiai ir rišliai. Ką darote toliau?",
         options: ["Pradedate daryti pirminį gaivinimą",
@@ -15,15 +16,17 @@ const questions = [{
             "Staigiai transportuojate nukentėjusįjį į kitą vietą, net jei aplinka saugi",
             "Defibriliuojate"
         ],
-        answer: 1
-    }, {
+        answer: 1,
+        additionalInfo: "Nuraminkite jį; Stenkitės nejudinti, nebent aplinkoje tvyro pavojus nukentėjusiajam ar teikiančiam pagalbą; Apžiūrėkite nukentėjusįjį: pačiupinėkite jį nuo galvos iki kojų; Suteikite pirmąją pagalbą; Jeigu būtina, kvieskite greitąją medicinos pagalbą"
+}, {
         question: "Įvertinus, kad aplinka saugi, einate prie nukentėjusiojo. Jis neatsako į jūsų užduodamus klausimus, yra nesąmoningas. Ką darote?",
         options: ["Pradedate gaivinimą, paprašote šalia esančio žmogaus (praeivio), kad kviestų GMP ir atneštų automatinį išorinį defibriliatorių (AID)",
             "Pradedate gaivinimą, tuo metu pats kviečiate greitąją medicinos pagalbą, net jei aplinkui daug žmonių, kurie tai galėtų padaryti",
             "Staigiai transportuojate nukentėjusįjį į kitą vietą, net jei aplinka saugi",
             "Bandote prakalbinti nukentėjusįjį"
         ],
-        answer: 0
+        answer: 0,
+        additionalInfo: "Kvieskite greitąją medicinos pagalbą, paprašykite pristatyti išorinį automatinį defibriliatorių; Pradėkite gaivinimą."
     }, {
         question: "Bendrosios pagalbos numeris 112:",
         options: ["Naudojamas tik Lietuvoje",
@@ -35,7 +38,8 @@ const questions = [{
         options: ["Tiesa",
             "Netiesa"
         ],
-        answer: 0
+        answer: 0,
+        additionalInfo: "Nepadėkite ragelio, kol neleis operatorius – pokalbį turi baigti pagalbos tarnybos dispečeris. Kvalifikuoti specialistai skirtingose šalyse pasiruošę telefonu instruktuoti, kaip suteikti pirmąją pagalbą."
     }, {
         question: "Teisingas pradinio gaivinimo algoritmas:",
         options: ["Kraujotakos užtikrinimas (Circulation), kvėpavimo užtikrinimas (Breathing), kvėpavimo takų atvėrimas (Airway)",
@@ -72,17 +76,18 @@ const questions = [{
 
 
 ];
-
+const quiz = document.querySelector(".quiz");
 const question = document.querySelector(".question h4");
 const option = document.querySelector(".options");
+const results = document.querySelector(".results");
+const correctAnswers = document.querySelector(".correctAnswers");
 
 let countQ = 0;
 let currentQ;
 let possibleQ = [];
 let possibleOpt = [];
 
-// let allQuestions = []; 
-// let allOptions = [];
+
 
 // sukeliame visus galimus klausimaus i lista - possibleQ
 
@@ -94,33 +99,18 @@ function setPossibleQ() {
 }
 
 
-    //
-    // bandymas rasyti trumpiau
-// function getNewQ() {
-//     const total = questions.length;
-//     for (let i = 0; i < total; i++) {
-//         let q = questions[i].q;
-//         question.innerHTML = q;
-//         let o = questions[i].options;
-//         option.appendChild(document.createElement("br"));
-//                 for ( var opt in options ) {
-        
-//       }
-//     }
-// }
-
-
 // gauname atsitiktini klausima 
 
 function getNewQ() {
-    const qNumber = possibleQ[Math.floor(Math.random() * possibleQ.length)];
+    const qNumber = possibleQ[0];
     currentQ = qNumber;
     question.innerHTML = currentQ.question;
-
+    console.log(qNumber);
     // gauname pozicija klausimo is possibleQ listo
     const index = possibleQ.indexOf(qNumber);
     // kad nesikartotu klausimai, tai istriname qNumber is possibleQ
     possibleQ.splice(index, 1);
+
     // console.log(qNumber);
     // console.log(possibleQ);
 
@@ -146,8 +136,6 @@ function getNewQ() {
 
 }
 
-
-
 // gauname vartotojo paspaudima i console, pazymime vartotojo pasirinkima spalva (teisingai-zalia, neteisingai-raudona)
 let rightAnswers = 0;
 
@@ -165,12 +153,12 @@ function getResult(chosenOpt) {
         chosenOpt.style.backgroundColor = "darkred";
         // getNewQ();
     }
-
+    // correctAnswers.textContent = rightAnswers + questions.length;
 }
 
 
 // function changeAnsweredColor(){
-//     document.querySelector(".options").style.color = "green";
+// document.querySelector(".options").style.color = "green";
 // }
 
 
@@ -183,8 +171,9 @@ function setCursorToPointer() {
 
 
 function theEnd() {
-    question.classList.add("hide");
+    quiz.classList.add("hide");
     results.classList.remove("hide");
+    correctAnswers.textContent = "Teisingi atsakymai: " + rightAnswers + " iš " + questions.length;
 }
 
 function getNextQ() {
@@ -203,6 +192,8 @@ window.onload = function() {
     setPossibleQ();
     // iskviesime nauja klausima
     getNewQ();
+
+
 };
 
 
@@ -212,34 +203,3 @@ window.onload = function() {
 
 // const startButton = document.getElementById("start");
 // const nextButton = document.getElementById("next");
-
-
-
-
-
-
-
-
-
-// for ( var i = 0; i < questions.length; i++ ) {
-//   var question = questions[i].question;
-//   document.write ( question );
-//   var options = questions[i].options;
-//   document.body.appendChild(document.createElement("br"));
-//    var name = "div"+i; 
-//   for ( var opt in options ) {
-
-//     var radioEle = document.createElement("input");
-//     radioEle.type = "div";          
-//     radioEle.value = options[opt];
-//     radioEle.name = name;
-//     document.body.appendChild(radioEle);
-//     var label = document.createElement("Label");
-//     label.innerHTML = options[opt];
-//     document.body.appendChild(label);
-//     document.body.appendChild(document.createElement("br"));
-//   }
-
-//   document.body.appendChild(document.createElement("br"));
-
-// }
