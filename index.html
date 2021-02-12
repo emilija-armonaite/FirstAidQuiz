@@ -29,21 +29,23 @@
       <!-- main quiz box -->
       <div class="main-box">
         <div class="startPage px-3 text-center">
-          <h1 class="mx-auto mb-5 text-uppercase">Pirmoji pagalba</h1>
-          <p class="lead">Mokėjimas tinkamai atlikti pradinį gaivinimą yra itin svarbu gelbstint žmogaus gyvybę. </p>
+          <h1 class="mx-auto mb-2 text-uppercase">Pirmoji pagalba</h1>
+          <h4 class="mx-auto mb-5 text-uppercase">Kiekvienas galime padėti</h1>
+          <p class="lead">Mokėjimas tinkamai atlikti pradinį gaivinimą yra itin svarbu gelbstint žmogaus gyvybę. Net greičiausia greitoji medicinos pagalba gali nesuspėti išgelbėti gyvybę, jeigu šalia nebus žmonių, mokančių suteikti pirmąją pagalbą. </p>
           <p class="lead">
             <button type="button" onclick="startQuiz()" class="btn btn-outline-danger btn-lg mt-3" id="start">Pradėti testą</button>
           </p>
         </div>
         <div class="quiz hide">
           <!-- question -->
+          <div class="num"></div>
           <div class="question box col-lg-8 mx-auto" id="questions">
             <h4>question</h4>
           </div>
           <!-- options -->
           <div class="options" onmouseenter="setCursorToPointer()" id="options">
           </div>
-          <div class="more"></div>
+          
           <div class="next" id="next">
             <button type="button" onclick="getNextQ()" onclick="theEnd()" class="btn btn-outline-danger btn-lg mt-3" id="nextQ">Kitas klausimas</button>
           </div>
@@ -64,7 +66,8 @@
       <div>Icons made by <a href="https://www.freepik.com" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div>
       <div>Photo by <a href="https://unsplash.com/@marceloleal80?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">Marcelo Leal</a> on <a href="https://unsplash.com/s/photos/stethoscope?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">Unsplash</a></div>
       <div>Cover template for <a href="https://getbootstrap.com/">Bootstrap</a>, by <a href="https://twitter.com/mdo">@mdo</a>.</div>
-      <div><a href="https://www.ld.lt/sites/default/files/uploads/pirmosios_pagalbos_atmintine.pdf">Pirmosios pagalbos atmintinė</a></div>
+      <div>Pirmosios pagalbos teikimo vadovas <a href="https://www.kam.lt">www.kam.lt</a></div>
+      <div>Pirmosios pagalbos atmintinė <a href="https://www.ld.lt/sites/default/files/uploads/pirmosios_pagalbos_atmintine.pdf">Lietuvos Raudonasis Kryžius, Lietuvos Draudimas</a></div>
     </footer>
   </div>
   <script src="js/main.js"></script>

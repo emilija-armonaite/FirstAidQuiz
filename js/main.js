@@ -2,77 +2,87 @@
 
 const questions = [{
         question: "Įvyko nelaimingas atsitikimas, yra nukentėjusiųjų. Koks Jūsų pats pirmas veiksmas?",
-        options: ["Pradedate daryti pirminį gaivinimą",
-            "Bandote kalbėti su nukentėjusiuoju",
-            "Apsidarote, įvertinate aplinką ir galimus pavojus",
-            "Bėgate ieškoti išorinio automationio defibriliatoriaus"
-        ],
+        options: ["Pradedate daryti pirminį gaivinimą", "Bandote kalbėti su nukentėjusiuoju", "Apsidarote, įvertinate aplinką ir galimus pavojus", "Bėgate ieškoti išorinio automationio defibriliatoriaus"],
         answer: 2,
         additionalInfo: "Prieš teikdami pirmąją pagalbą, įvertinkite situaciją ir įsitikinkite, kad tai yra saugu (jei situacija yra pavojinga Jūsų gyvybei ar sveikatai, pavyzdžiui: pravažiuojantis transportas, griūvantys, krentantys objektai, gaisras, elektra, kenksmingos medžiagos, nukentėjusysis yra agresyvus, galite užsikrėsti infekcine liga – šiais atvejais pirmiausia reikia užtikrinti saugumą)."
     }, {
+        question: "Kodėl reikia įvertinti įvykio vietos saugumą? ",
+        options: ["Siekiant įsitikinti, jog situacija nepavojinga gelbėtojo gyvybei ar sveikatai", "Siekiant užtikrinti nukentėjusiojo saugumą", "Siekiant išsiaiškinti nelaimingo atsitikimo/avarijos priežastis"],
+        answer: 0,
+    }, {
         question: "Įvertinus, kad aplinka saugi, einate prie nukentėjusiojo. Jis yra sąmoningas, atsakinėja į klausimus aiškiai ir rišliai. Ką darote toliau?",
-        options: ["Pradedate daryti pirminį gaivinimą",
-            "Nukentėjusįjį nuraminate, apžiūrite ir jei reikia, suteikiate pirmąją pagalbą, kviečiate GMP",
-            "Staigiai transportuojate nukentėjusįjį į kitą vietą, net jei aplinka saugi",
-            "Defibriliuojate"
-        ],
+        options: ["Pradedate daryti pirminį gaivinimą", "Nukentėjusįjį nuraminate, apžiūrite ir jei reikia, suteikiate pirmąją pagalbą, kviečiate GMP", "Staigiai transportuojate nukentėjusįjį į kitą vietą, net jei aplinka saugi", "Defibriliuojate"],
         answer: 1,
         additionalInfo: "Nuraminkite jį; Stenkitės nejudinti, nebent aplinkoje tvyro pavojus nukentėjusiajam ar teikiančiam pagalbą; Apžiūrėkite nukentėjusįjį: pačiupinėkite jį nuo galvos iki kojų; Suteikite pirmąją pagalbą; Jeigu būtina, kvieskite greitąją medicinos pagalbą"
     }, {
+        question: "Kaip padėti žmogui, ištiktam psichologinio streso?",
+        options: ["Nuraminti, šiltai apkloti, pasakyti, kad jau atvyksta greitoji medicinos pagalba", "Nieko nedaryti, laukti, kol atvyks greitoji medicinos pagalba", "Sugirdyti raminanamųjų vaistų"],
+        answer: 0,
+    }, {
         question: "Įvertinus, kad aplinka saugi, einate prie nukentėjusiojo. Jis neatsako į jūsų užduodamus klausimus, yra nesąmoningas. Ką darote?",
-        options: ["Pradedate gaivinimą, paprašote šalia esančio žmogaus (praeivio), kad kviestų GMP ir atneštų automatinį išorinį defibriliatorių (AID)",
-            "Pradedate gaivinimą, tuo metu pats kviečiate greitąją medicinos pagalbą, net jei aplinkui daug žmonių, kurie tai galėtų padaryti",
-            "Staigiai transportuojate nukentėjusįjį į kitą vietą, net jei aplinka saugi",
-            "Bandote prakalbinti nukentėjusįjį"
-        ],
+        options: ["Pradedate gaivinimą, paprašote šalia esančio žmogaus (praeivio), kad kviestų GMP ir atneštų automatinį išorinį defibriliatorių (AID)", "Pradedate gaivinimą, tuo metu pats kviečiate greitąją medicinos pagalbą, net jei aplinkui daug žmonių, kurie tai galėtų padaryti", "Staigiai transportuojate nukentėjusįjį į kitą vietą, net jei aplinka saugi", "Bandote prakalbinti nukentėjusįjį"],
         answer: 0,
         additionalInfo: "Kvieskite greitąją medicinos pagalbą, paprašykite pristatyti išorinį automatinį defibriliatorių; Pradėkite gaivinimą."
     }, {
+        question: "Kaip įvertinti pagrindines gyvybines funkcijas?",
+        options: [" Stebėti, ar kvėpuoja (stebėti, ar juda krūtinės ląsta, pajausti oro judėjimą skruostu)", "Pakalbinti („Kaip jaučiatės? Kas atsitiko?), stebėti, ar kvėpuoja (stebėti, ar juda krūtinės ląsta, pajausti oro judėjimą skruostu), čiuopti pulsą (miego arterijos srityje)", "Pakalbinti („Kaip jaučiatės? Kas atsitiko?), čiuopti pulsą (miego arterijos srityje). "],
+        answer: 1,
+    },
+
+    {
         question: "Bendrosios pagalbos numeris 112:",
-        options: ["Naudojamas tik Lietuvoje",
-            "Naudojamas visoje Europoje"
-        ],
-        answer: 1
+        options: ["Naudojamas tik Lietuvoje", "Naudojamas visoje Europoje"],
+        answer: 1,
     }, {
         question: "Paskambinus bendrosios pagalbos numeriu 112 negalima padėti ragelio, kol neleis operatorius.",
-        options: ["Tiesa",
-            "Netiesa"
-        ],
+        options: ["Tiesa", "Netiesa"],
         answer: 0,
         additionalInfo: "Nepadėkite ragelio, kol neleis operatorius – pokalbį turi baigti pagalbos tarnybos dispečeris. Kvalifikuoti specialistai skirtingose šalyse pasiruošę telefonu instruktuoti, kaip suteikti pirmąją pagalbą."
     }, {
-        question: "Teisingas pradinio gaivinimo algoritmas:",
-        options: ["Kraujotakos užtikrinimas (Circulation), kvėpavimo užtikrinimas (Breathing), kvėpavimo takų atvėrimas (Airway)",
-            "Kvėpavimo takų atvėrimas (Airway), kraujotakos užtikrinimas (Circulation), kvėpavimo užtikrinimas (Breathing)",
-            "Kvėpavimo takų atvėrimas (Airway), kvėpavimo užtikrinimas (Breathing), kraujotakos užtikrinimas (Circulation)"
-        ],
-        answer: 2
+        question: "Teisingas pradinio gaivinimo algoritmas.",
+        options: ["Kraujotakos užtikrinimas (Circulation), kvėpavimo užtikrinimas (Breathing), kvėpavimo takų atvėrimas (Airway)", "Kvėpavimo takų atvėrimas (Airway), kraujotakos užtikrinimas (Circulation), kvėpavimo užtikrinimas (Breathing)", "Kvėpavimo takų atvėrimas (Airway), kvėpavimo užtikrinimas (Breathing), kraujotakos užtikrinimas (Circulation)"],
+        answer: 2,
     }, {
-        question: "Paspaudimus ir įpūtimus reikia kartoti santykiu 30:2:",
-        options: ["Tiesa",
-            "Netiesa"
-        ],
-        answer: 0
+        question: "Paspaudimus ir įpūtimus reikia kartoti santykiu 30:2.",
+        options: ["Tiesa", "Netiesa"],
+        answer: 0,
     }, {
         question: "Krūtinė spaudžiama visa rankų jėga, paspaudimų gylis turi būti iki 3cm:",
-        options: ["Tiesa",
-            "Netiesa"
-        ],
-        answer: 1
-    }
-    //, {
-    // 	question:"",
-    // 	options:["","","",""],
-    // 	answer:2
-    // }, {
-    // 	question:"",
-    // 	options:["","","",""],
-    // 	answer:2
-    // }, {
-    // 	question:"",
-    // 	options:["","","",""],
-    // 	answer:2
-    // },
+        options: ["Tiesa", "Netiesa"],
+        answer: 1,
+    }, {
+        question: "Kiek laiko reikia gaivinti nukentėjusįjį?",
+        options: ["Kol atvyks greitoji medicinos pagalba", "45 minutes", "Kol atkuriama kraujotaka ir kvėpavimas, atvyksta greitoji medicinos pagalba, atsiranda biologinės mirties požymių, gaivintojas išsenka arba iškyla grėsmė jo gyvybei"],
+        answer: 2,
+    }, {
+        question: "Kokia yra pirmosios pagalbos veiksmų seka?",
+        options: ["Paskambink, padėk, patikrink", "Patikrink, paskambink, padėk", "Padėk, patikrink, paskambink"],
+        answer: 1,
+    }, {
+        question: "Gaivinimas tęsiamas tol, kol:",
+        options: ["Atvyksta kvalifikuota pagalba", "Atsistato kraujotaka ir kvėpavimas (žmogus pats pradeda kvėpuoti ar kosėti)", "Atsiranda biologinės mirties požymių", "Gaivintojas visiškai išsenka arba jo gyvybei iškyla tiesioginė  grėsmė", "Visi variantai teisingi"],
+        answer: 4,
+    }, {
+        question: "Jeigu pagalbą teikiantis asmuo nėra profesionalus gaivintojas ar nenori/ negali daryti dirbtinio kvėpavimo, gaivinti nukentėjusįjį gali atlikdamas tik krūtinės paspaudimus: 100 krūtinės paspaudimų per 1 min.",
+        options: ["Tiesa", "Netiesa"],
+        answer: 0,
+    }, {
+        question: "Ką daryti teikiant pirmąją pagalbą, jei užspringęs žmogus sąmoningas? ",
+        options: ["Duoti atsigerti vandens, kad svetimkūnis nuslinktų gilyn", "Skatinti kosulį, jei taip svetimkūnis nepasišalino, palenkti nukentėjusįjį per liemenį galva žemyn ir atlikti 5 stūmius per nugarą tarp menčių", "Suduoti keletą kartų per nugarą"],
+        answer: 1,
+    }, {
+        question: "Kaip gaivinti sąmonės netekusį užspringusįjį, esant visiškam kvėpavimo takų nepraeinamumui? ",
+        options: ["Kviesti GMP, nukentėjusįjį paguldyti ant nugaros ir atlikti 30 krūtinės ląstos paspaudimų", "Kviesti GMP, nukentėjusįjį atversti ant nugaros, pravėrus burną pašalinti matomus maisto likučius, atlikti 2 oro įpūtimus per burną ir 30 krūtinės ląstos paspaudimų. ", "Kviesti greitąją medicinos pagalbą, nukentėjusįjį palenkti per liemenį galva žemyn ir suduoti keletą kartų per nugarą"],
+        answer: 1,
+    }, {
+        question: "Kokie pirmosios pagalbos ypatumai užspringus kūdikiui?",
+        options: ["Paguldyti kūdikį ant rankos dilbio veidu žemyn. Kitos rankos delno pagrindu 5 kartus smūgiuoti į nugarą tarp menčių", "Paėmus kūdikį už kojų galva žemyn 5 kartus stipriai pakratyti", "Kišti pirštą užspringusiam kūdikiui į burną ir įstumti gilyn svetimkūnį"],
+        answer: 0,
+    }, {
+        question: "Kodėl užspringusio kūdikio negalima kratyti už kojų?",
+        options: [" Galima netyčia išmesti iš rankų. ", "Galima sulaužyti kaklo slankstelius, sukrėsti smegenis ar sužeisti galvoje esančias kraujagysles", "Galima jį labai išgąsdinti"],
+        answer: 0,
+    },
 
 
 ];
@@ -80,7 +90,7 @@ const startQ = document.querySelector(".startPage");
 const quiz = document.querySelector(".quiz");
 const question = document.querySelector(".question h4");
 const option = document.querySelector(".options");
-const more = document.querySelector(".more");
+const num = document.querySelector(".num");
 const results = document.querySelector(".results");
 const correctAnswers = document.querySelector(".correctAnswers");
 
@@ -101,8 +111,9 @@ function setPossibleQ() {
 function getNewQ() {
     const qNumber = possibleQ[0];
     currentQ = qNumber;
+
     question.innerHTML = currentQ.question;
-    console.log(qNumber);
+    // console.log(qNumber);
     // gauname pozicija klausimo is possibleQ listo
     const index = possibleQ.indexOf(qNumber);
     // kad nesikartotu klausimai, tai istriname qNumber is possibleQ
@@ -124,9 +135,7 @@ function getNewQ() {
         option.appendChild(opt);
         opt.setAttribute("onclick", "getResult(this)");
     }
-
     countQ++;
-
 }
 
 // gauname vartotojo paspaudima i console, pazymime vartotojo pasirinkima spalva (teisingai-zalia, neteisingai-raudona)
@@ -134,7 +143,6 @@ let rightAnswers = 0;
 
 function getResult(chosenOpt) {
     const id = parseInt(chosenOpt.id);
-    more.innerHTML = "";
     if (id === currentQ.answer) {
         console.log("Teisingai");
         chosenOpt.style.backgroundColor = "green";
@@ -152,6 +160,7 @@ function getResult(chosenOpt) {
         }
     }
     unclick();
+    // needAnswer();
 }
 
 //nustatome, kad vartotojas galetu tik viena kart pasirinkti atsakyma
@@ -161,13 +170,16 @@ function unclick() {
         option.children[i].classList.add("answered");
     }
 }
+// function needAnswer() {
 
-
+// }
 //pakeiciame kursoriu i pointer, kai vartotojas uzeina ant pasirinkimo
 
-function setCursorToPointer() {
-    document.querySelector(".options").style.cursor = "pointer";
-}
+// function setCursorToPointer() {
+//     document.querySelector(".options").style.cursor = "pointer";
+// }
+
+let setCursorToPointer = () => document.querySelector(".options").style.cursor = "pointer";
 
 //parodomi quiz rezultatai
 function theEnd() {
@@ -175,6 +187,7 @@ function theEnd() {
     results.classList.remove("hide");
     correctAnswers.textContent = "Teisingi atsakymai: " + rightAnswers + " iš " + questions.length;
 }
+
 
 //kvieciame naujus klausimus
 function getNextQ() {
