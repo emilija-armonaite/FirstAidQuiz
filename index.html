@@ -9,6 +9,7 @@
     <title>Pirmoji pagalba</title>
     <link rel="canonical" href="https://getbootstrap.com/docs/5.0/examples/cover/">
     <link rel="preconnect" href="https://fonts.gstatic.com">
+    <script src="https://kit.fontawesome.com/7aea40c614.js" crossorigin="anonymous"></script>
     <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@333&display=swap" rel="stylesheet">
     <!-- Bootstrap core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
@@ -20,31 +21,32 @@
     <!-- header -->
     <div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
       <header class="mb-auto">
-        <div class="float-md-start">
-          <img src="img/heart-with-electrocardiogram.png" style="height: 90px" alt="heart">
+        <div class="float-md-start" id="animation">
+          <img src="img/heart-with-electrocardiogram.png" id ="heart"alt="heart">
+          <!-- <i class="fas fa-heartbeat" id="heart"></i> -->
         </div>
       </header>
       <!-- main quiz box -->
-      <div class="quiz-box">
-        <div class="main box hide px-3 text-center">
+      <div class="main-box">
+        <div class="startPage px-3 text-center">
           <h1 class="mx-auto mb-5 text-uppercase">Pirmoji pagalba</h1>
-          <p class="lead">Mokėjimas tinkamai atlikti pradinį gaivinimą yra itin svarbu gelbstint žmogaus gyvybę. Pasitikrinkite ką jau žinote apie pirmają pagalbą ir .. nuolatos tobulėkite :) </p>
+          <p class="lead">Mokėjimas tinkamai atlikti pradinį gaivinimą yra itin svarbu gelbstint žmogaus gyvybę. </p>
           <p class="lead">
-            <button type="button" onclick="getNextQ()" class="btn btn-outline-danger btn-lg mt-3" id="start">Pradėti testą</a>
+            <button type="button" onclick="startQuiz()" class="btn btn-outline-danger btn-lg mt-3" id="start">Pradėti testą</button>
           </p>
         </div>
-        <div class="quiz">
-        <!-- question -->
-        <div class="question box col-lg-8 mx-auto" id="questions">
-          <h4>question</h4>
-        </div>
-        <!-- options -->
-        <div class="options" onmouseenter="setCursorToPointer()" id="options">
-        </div>
-        <!-- <div class="form-check">opt</div> -->
-        <div class="next" id="next">
-          <button type="button" onclick="getNextQ()" onclick="theEnd()" class="btn btn-outline-danger btn-lg mt-3" id="nextQ">Kitas klausimas</button>
-        </div>
+        <div class="quiz hide">
+          <!-- question -->
+          <div class="question box col-lg-8 mx-auto" id="questions">
+            <h4>question</h4>
+          </div>
+          <!-- options -->
+          <div class="options" onmouseenter="setCursorToPointer()" id="options">
+          </div>
+          <div class="more"></div>
+          <div class="next" id="next">
+            <button type="button" onclick="getNextQ()" onclick="theEnd()" class="btn btn-outline-danger btn-lg mt-3" id="nextQ">Kitas klausimas</button>
+          </div>
         </div>
         <!-- results -->
         <div class="results hide">
@@ -52,15 +54,19 @@
           <h3 class="correctAnswers"></h3>
           <p class="lead">
             <!-- onclick="getNextQ()" -->
-            <button type="button" class="btn btn-outline-danger btn-lg mt-3" id="tryAgain">Bandyti dar kartą</a>
+            <button type="button" class="btn btn-outline-danger btn-lg mt-3" onclick="tryAgain()" id="tryAgain">Bandyti dar kartą</button>
           </p>
         </div>
       </div>
-      <!-- footer -->
-      <!--             <footer class="mt-auto text-white-50">
-        <p>Cover template for <a href="https://getbootstrap.com/" class="text-white">Bootstrap</a>, by <a href="https://twitter.com/mdo" class="text-white">@mdo</a>.</p>
-      </footer> -->
     </div>
-    <script src="js/main.js"></script>
-  </body>
+    <!-- footer -->
+    <footer class="container mt-4 mb-5 text-white-50">
+      <div>Icons made by <a href="https://www.freepik.com" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div>
+      <div>Photo by <a href="https://unsplash.com/@marceloleal80?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">Marcelo Leal</a> on <a href="https://unsplash.com/s/photos/stethoscope?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">Unsplash</a></div>
+      <div>Cover template for <a href="https://getbootstrap.com/">Bootstrap</a>, by <a href="https://twitter.com/mdo">@mdo</a>.</div>
+      <div><a href="https://www.ld.lt/sites/default/files/uploads/pirmosios_pagalbos_atmintine.pdf">Pirmosios pagalbos atmintinė</a></div>
+    </footer>
+  </div>
+  <script src="js/main.js"></script>
+</body>
 </html>

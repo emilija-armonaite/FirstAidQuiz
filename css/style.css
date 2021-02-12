@@ -12,6 +12,57 @@
 }
 
 
+/* header - heart icon */
+@keyframes heartbeat {
+  0% {
+    transform: scale( .75);
+  }
+  20% {
+    transform: scale( 1);
+  }
+  40% {
+    transform: scale( .75);
+  }
+  60% {
+    transform: scale( 1);
+  }
+  80% {
+    transform: scale( .75);
+  }
+  100% {
+    transform: scale( .75);
+  }
+}
+#heart {
+  position: relative;
+  width: 100px;
+  height: 90px;
+  animation: heartbeat 1s infinite;
+}
+
+#heart::before,
+#heart::after {
+  position: absolute;
+  content: "";
+  left: 50px;
+  top: 0;
+  width: 50px;
+  height: 80px;
+  background-image: url("../img/heart-with-electrocardiogram.png"); 
+  border-radius: 50px 50px 0 0;
+  transform: rotate(-45deg);
+  transform-origin: 0 100%;
+}
+
+#heart::after {
+  left: 0;
+  transform: rotate(45deg);
+  transform-origin: 100% 100%;
+}
+
+
+
+
 /*
  * Base structure
  */
@@ -20,7 +71,7 @@ html * {
       color: #44464a;
 }
 
-.main h1 {
+.main-box h1 {
   font-size: 2.5rem;
   line-height: 2.5rem;
   letter-spacing: 0.8rem;
@@ -37,7 +88,7 @@ body {
 }
 
 
-.quiz-box {
+.main-box {
   max-width: 700px;
   height: 100%;
   background-color: white;
@@ -56,15 +107,15 @@ body {
 
 /* main */
 
-.box::before,
-.box::after {
+/* .startPage::before,
+.startPage::after {
   content: "";
   clear: both;
   display: table;
 
-}
+} */
 
- .box.hide {
+ .startPage.hide {
   display: none;
  }
 
@@ -76,10 +127,10 @@ body {
   padding: 20px;
 } 
 
-
 .options {
   color: white;
 }
+
 .options .form-check{
   text-align: left;
   background-color: #d6d6d6;
@@ -90,17 +141,26 @@ body {
   color: #000000;
 }
 
+.options div:hover {
+  background-color: darkgray;
+}
+
+.options .answered {
+  pointer-events: none;
+}
+
 /* results */
 .results.hide, .quiz.hide {
   display: none;
 }
 
 
-.results {
-width: 20em;
-height: 300px;
-}
 
-.options div:hover {
-  background-color: darkgray;
+/* footer */
+.container{
+  /* margin: 70px, 70px; */
+
+height: 50px;
+  margin-top: -50px;
+
 }

@@ -18,7 +18,7 @@ const questions = [{
         ],
         answer: 1,
         additionalInfo: "Nuraminkite jį; Stenkitės nejudinti, nebent aplinkoje tvyro pavojus nukentėjusiajam ar teikiančiam pagalbą; Apžiūrėkite nukentėjusįjį: pačiupinėkite jį nuo galvos iki kojų; Suteikite pirmąją pagalbą; Jeigu būtina, kvieskite greitąją medicinos pagalbą"
-}, {
+    }, {
         question: "Įvertinus, kad aplinka saugi, einate prie nukentėjusiojo. Jis neatsako į jūsų užduodamus klausimus, yra nesąmoningas. Ką darote?",
         options: ["Pradedate gaivinimą, paprašote šalia esančio žmogaus (praeivio), kad kviestų GMP ir atneštų automatinį išorinį defibriliatorių (AID)",
             "Pradedate gaivinimą, tuo metu pats kviečiate greitąją medicinos pagalbą, net jei aplinkui daug žmonių, kurie tai galėtų padaryti",
@@ -76,9 +76,11 @@ const questions = [{
 
 
 ];
+const startQ = document.querySelector(".startPage");
 const quiz = document.querySelector(".quiz");
 const question = document.querySelector(".question h4");
 const option = document.querySelector(".options");
+const more = document.querySelector(".more");
 const results = document.querySelector(".results");
 const correctAnswers = document.querySelector(".correctAnswers");
 
@@ -87,10 +89,7 @@ let currentQ;
 let possibleQ = [];
 let possibleOpt = [];
 
-
-
 // sukeliame visus galimus klausimaus i lista - possibleQ
-
 function setPossibleQ() {
     const total = questions.length;
     for (let i = 0; i < total; i++) {
@@ -98,9 +97,7 @@ function setPossibleQ() {
     }
 }
 
-
-// gauname atsitiktini klausima 
-
+// gauname klausima 
 function getNewQ() {
     const qNumber = possibleQ[0];
     currentQ = qNumber;
@@ -110,10 +107,6 @@ function getNewQ() {
     const index = possibleQ.indexOf(qNumber);
     // kad nesikartotu klausimai, tai istriname qNumber is possibleQ
     possibleQ.splice(index, 1);
-
-    // console.log(qNumber);
-    // console.log(possibleQ);
-
     //gauname klausimo pasirinkimus, pasirinkimju ilgi
     const optionLength = currentQ.options.length;
     // sukeliame pasirinkimus i possibleOpt lista
@@ -140,8 +133,8 @@ function getNewQ() {
 let rightAnswers = 0;
 
 function getResult(chosenOpt) {
-
     const id = parseInt(chosenOpt.id);
+    more.innerHTML = "";
     if (id === currentQ.answer) {
         console.log("Teisingai");
         chosenOpt.style.backgroundColor = "green";
@@ -151,16 +144,23 @@ function getResult(chosenOpt) {
     } else {
         console.log("Neteisingai");
         chosenOpt.style.backgroundColor = "darkred";
-        // getNewQ();
+        const optionLength = option.children.length;
+        for (let i = 0; i < optionLength; i++) {
+            if (parseInt(option.children[i].id) === currentQ.answer) {
+                option.children[i].style.backgroundColor = "green";
+            }
+        }
     }
-    // correctAnswers.textContent = rightAnswers + questions.length;
+    unclick();
 }
 
-
-// function changeAnsweredColor(){
-// document.querySelector(".options").style.color = "green";
-// }
-
+//nustatome, kad vartotojas galetu tik viena kart pasirinkti atsakyma
+function unclick() {
+    const optionLength = option.children.length;
+    for (let i = 0; i < optionLength; i++) {
+        option.children[i].classList.add("answered");
+    }
+}
 
 
 //pakeiciame kursoriu i pointer, kai vartotojas uzeina ant pasirinkimo
@@ -169,13 +169,14 @@ function setCursorToPointer() {
     document.querySelector(".options").style.cursor = "pointer";
 }
 
-
+//parodomi quiz rezultatai
 function theEnd() {
     quiz.classList.add("hide");
     results.classList.remove("hide");
     correctAnswers.textContent = "Teisingi atsakymai: " + rightAnswers + " iš " + questions.length;
 }
 
+//kvieciame naujus klausimus
 function getNextQ() {
     if (countQ === questions.length) {
         console.log("Klausimų pabaiga");
@@ -183,17 +184,30 @@ function getNextQ() {
     } else {
         getNewQ();
     }
-
 }
 
 
-window.onload = function() {
+
+function tryAgain() {
+    results.classList.add("hide");
+    startQ.classList.remove("hide");
+    resetAns();
+    startQuiz();
+}
+
+function resetAns() {
+    countQ = 0;
+    correctAnswers = 0;
+}
+
+// pradeti quiz
+function startQuiz() {
+    startQ.classList.add("hide");
+    quiz.classList.remove("hide");
     // gauname visus klausimus liste (possibleQ)
     setPossibleQ();
     // iskviesime nauja klausima
     getNewQ();
-
-
 };
 
 
@@ -201,5 +215,7 @@ window.onload = function() {
 
 
 
-// const startButton = document.getElementById("start");
-// const nextButton = document.getElementById("next");
+//  const startButton = document.getElementById("start");
+// startButton.addEventListener("click", function) {
+
+// }
