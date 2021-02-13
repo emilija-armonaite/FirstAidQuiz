@@ -1,16 +1,20 @@
-/*
- * Globals
- */
 
+ /* Base structure */
 
-/* Custom default button */
-.btn-secondary,
-.btn-secondary:hover,
-.btn-secondary:focus {
-  color: #333;
-  text-shadow: none; /* Prevent inheritance from `body` */
+html * {
+      font-family: 'Josefin Sans', sans-serif;
+      color: #44464a;
 }
-
+/* body */
+body {
+  background-image: url("../img/marcelo-leal-k7ll1hpdhFA-unsplash.jpg");
+  background-color: #cccccc;
+  width: auto;
+  height: auto;
+  background-repeat: initial;
+  background-size: cover;
+  height: 85%;
+}
 
 /* header - heart icon */
 @keyframes heartbeat {
@@ -33,10 +37,11 @@
     transform: scale( .75);
   }
 }
+
 #heart {
   position: relative;
-  width: 100px;
-  height: 90px;
+  width: 80px;
+  height: 70px;
   animation: heartbeat 1s infinite;
 }
 
@@ -62,34 +67,9 @@
 
 
 
-
-/*
- * Base structure
- */
-html * {
-      font-family: 'Josefin Sans', sans-serif;
-      color: #44464a;
-}
-
-.main-box h1 {
-  font-size: 2.5rem;
-  line-height: 2.5rem;
-  letter-spacing: 0.8rem;
-  color: darkred;
-}
-
-body {
-  background-image: url("../img/marcelo-leal-k7ll1hpdhFA-unsplash.jpg");
-  background-color: #cccccc;
-  height: auto;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-}
-
-
+/* main */
 .main-box {
-  max-width: 700px;
+  max-width: 800px;
   height: 100%;
   background-color: white;
   opacity: 0.9;
@@ -103,9 +83,23 @@ body {
   margin-bottom: 2px;
 }
 
-/* header */
+.main-box h1 {
+  font-size: 2.5rem;
+  line-height: 2.5rem;
+  letter-spacing: 0.8rem;
+  color: darkred;
+}
 
-/* main */
+.main-box img {
+  height: 12em;
+
+}
+
+.btn.hide {
+ display: none;
+}
+
+
 
 /* .startPage::before,
 .startPage::after {
@@ -115,11 +109,16 @@ body {
 
 } */
 
+
  .startPage.hide {
   display: none;
  }
 
- /* questions */
+ /* quiz (question and options) */
+
+.quiz.hide {
+  display: none;
+}
 
 .question h4 {
   font-size: 25px;
@@ -131,7 +130,7 @@ body {
   color: white;
 }
 
-.options .form-check{
+.options .form-text{
   text-align: left;
   background-color: #d6d6d6;
   padding: 15px;
@@ -150,14 +149,40 @@ body {
 }
 
 /* results */
-.results.hide, .quiz.hide {
+
+.results.hide {
   display: none;
 }
 
+.results {
+  height: 100%;
+}
 
+table {
+  text-align: left;
+}
 
 /* footer */
-/* .container{
-  margin: 70px, 70px;
 
-} */
+/*     left: 0;
+    bottom: 0;
+    right: 0; */
+/*     padding-bottom: 2px;
+    border: 20px; */
+/*     padding: 0em;
+    padding-top: 5em;
+    text-align: center;
+    font-size: 15px;
+    /* position: absolute; */
+/*     position: sticky;
+    width: 100%;
+    height: auto; */ */
+/* } */
+
+
+footer {
+    /* clear: both; */
+    position: absolute;
+    height: 15px;
+    /* margin-top: -200px; */
+}

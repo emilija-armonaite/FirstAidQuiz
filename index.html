@@ -16,58 +16,116 @@
     <!-- Custom styles for this template -->
     <link href="css/style.css" rel="stylesheet">
   </head>
-  <body >
+  <body>
     <!-- body class="d-flex h-100 text-center text-white bg-dark" -->
     <!-- header -->
     <div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
       <header class="mb-auto">
-        <div class="float-md-start" id="animation">
+        <div class="float-md-start col-lg-1" id="animation">
           <img src="img/heart-with-electrocardiogram.png" id ="heart"alt="heart">
-          <!-- <i class="fas fa-heartbeat" id="heart"></i> -->
         </div>
       </header>
       <!-- main quiz box -->
       <div class="main-box">
         <div class="startPage px-3 text-center">
           <h1 class="mx-auto mb-2 text-uppercase">Pirmoji pagalba</h1>
-          <h4 class="mx-auto mb-5 text-uppercase">Kiekvienas galime padėti</h1>
-          <p class="lead">Mokėjimas tinkamai atlikti pradinį gaivinimą yra itin svarbu gelbstint žmogaus gyvybę. Net greičiausia greitoji medicinos pagalba gali nesuspėti išgelbėti gyvybę, jeigu šalia nebus žmonių, mokančių suteikti pirmąją pagalbą. </p>
+          <p class="lead">Net pati greičiausia greitoji medicinos pagalba gali nesuspėti išgelbėti gyvybę, jeigu šalia nebus žmonių, mokančių suteikti pirmąją pagalbą. </p>
           <p class="lead">
+            <p class="lead">Todėl pirmosios pagalbos veiksmus teisingai atlikti turėtų mokėti kiekvienas iš mūsų.</p>
+            <img src="img/toa-heftiba-_UIVmIBB3JU-unsplash.jpg" alt="hands">
             <button type="button" onclick="startQuiz()" class="btn btn-outline-danger btn-lg mt-3" id="start">Pradėti testą</button>
           </p>
         </div>
         <div class="quiz hide">
           <!-- question -->
           <div class="num"></div>
-          <div class="question box col-lg-8 mx-auto" id="questions">
+          <div class="question box col-lg-12 mx-auto" id="questions">
             <h4>question</h4>
           </div>
           <!-- options -->
           <div class="options" onmouseenter="setCursorToPointer()" id="options">
           </div>
-          
           <div class="next" id="next">
-            <button type="button" onclick="getNextQ()" onclick="theEnd()" class="btn btn-outline-danger btn-lg mt-3" id="nextQ">Kitas klausimas</button>
+            <button type="button" onclick="getNextQ()" onclick="theEnd()" class="btn hide btn-outline-danger btn-lg mt-3" id="nextQ">Kitas klausimas</button>
           </div>
         </div>
         <!-- results -->
         <div class="results hide">
           <h1 class="mx-auto my-0 mb-2 text-uppercase">Rezultatai</h1>
           <h3 class="correctAnswers"></h3>
+          <table style="width:100%">
+            <tr>
+              <th>D</th>
+              <td>Danger</td>
+              <td>Greitai įvertinkite situaciją ir galimus pavojus</td>
+            </tr>
+            <tr>
+              <th>R</th>
+              <td>Response</td>
+              <td>Nustatykite, ar nukentėjęs žmogus yra sąmoningas ar nesąmoningas - Atsargiai patapšnokite per pečius ir garsiai paklauskite:„kaip jaučiatės?“</td>
+            </tr>
+            <tr>
+              <th>S</th>
+              <td>Send for help</td>
+              <td>GMP kvieskite patys arba paprašykite aplinkinių. Skambinkite bendrosios pagalbos telefono numeriu 112 arba 033</td>
+            </tr>
+            <tr>
+              <th>A</th>
+              <td>Airway</td>
+              <td>Atverkite nukentėjusiojo kvėpavimo takus: dviem pirštais pakelkite smakrą, kitos rankos delną uždėkite ant kaktos ir atloškite galvą. Stebėkite, klausykitės ir bandykite pajusti kvėpavimą (apie 10 sek.)</td>
+            </tr>
+            <tr>
+              <th>B</th>
+              <td>Breathing</td>
+              <td>Jei nukentėjusysis nesąmoningas, bet kvėpuoja, ir neįtariate stuburo traumos, paverskite jį ant šono, tebėkite sąmonę ir kvėpavimą. Jei nukentėjusysis nekvėpuoja ar nesate tikras dėl jo kvėpavimo, pradėkite gaivinti.</td>
+            </tr>
+            <tr>
+              <th>C</th>
+              <td>Circulation</td>
+              <td>Pradėkite gaivinimą - atlikite 30 krūtinės paspaudimų 100 kartų per minutę dažniu (atitinka skaičiavimą „ir viens, ir du, ir viens, ir du...“). Atlikę 30 krūtinės paspaudimų, padarykite 2 įpūtimus ir t.t. Paspaudimus ir įpūtimus santykiu 30:2 kartokite tol, kol atvyks GMP, arba nukentėjusysis atsigaus pats.</td>
+            </tr>
+            <tr>
+              <th>D</th>
+              <td>Defibrillator</td>
+              <td>Defibriliacija atliekama nedelsiant, atnešus automatinį išorinį defibriliatorių:
+                <ul>
+                  <li>įjunkite aparatą;</li>
+                  <li>prijunkite automatinį išorinį
+                    defibriliatorių prie nukentėjusiojo,
+                  sekite aparato nurodymus;</li>
+                  <li>išgirdę nurodymą, paspauskite
+                  analizavimo mygtuką (jei jis yra);</li>
+                  <li>išgirdę nurodymą ir įsitikinę, kad
+                    niekas neliečia nukentėjusiojo,
+                    paspauskite „elektros šoko“
+                  mygtuką.</li>
+                </ul>
+              </td>
+            </tr>
+          </table>
           <p class="lead">
-            <!-- onclick="getNextQ()" -->
             <button type="button" class="btn btn-outline-danger btn-lg mt-3" onclick="tryAgain()" id="tryAgain">Bandyti dar kartą</button>
           </p>
         </div>
       </div>
     </div>
     <!-- footer -->
-    <footer class="container mt-4 mb-5 text-white-50">
-      <div>Icons made by <a href="https://www.freepik.com" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div>
-      <div>Photo by <a href="https://unsplash.com/@marceloleal80?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">Marcelo Leal</a> on <a href="https://unsplash.com/s/photos/stethoscope?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">Unsplash</a></div>
-      <div>Cover template for <a href="https://getbootstrap.com/">Bootstrap</a>, by <a href="https://twitter.com/mdo">@mdo</a>.</div>
-      <div>Pirmosios pagalbos teikimo vadovas <a href="https://www.kam.lt">www.kam.lt</a></div>
-      <div>Pirmosios pagalbos atmintinė <a href="https://www.ld.lt/sites/default/files/uploads/pirmosios_pagalbos_atmintine.pdf">Lietuvos Raudonasis Kryžius, Lietuvos Draudimas</a></div>
+    <!-- mt-4 mb-5 text-white-50 -->
+    <footer class="container">
+      <div class="row">
+        <div class="col-6 col-sm-4 col-md-4 col-lg-4">
+          <div>Icons made by <a href="https://www.freepik.com" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div>
+          <div>Photo by <a href="https://unsplash.com/@marceloleal80?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">Marcelo Leal</a> on <a href="https://unsplash.com/s/photos/stethoscope?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">Unsplash</a></div>
+          <div>Photo by <a href="https://unsplash.com/@heftiba?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">Toa Heftiba</a> on <a href="https://unsplash.com/s/photos/help?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">Unsplash</a></div>
+        </div>
+        <div class="col-6 col-sm-4 col-md-4 col-lg-4">
+          <div>Cover template for <a href="https://getbootstrap.com/">Bootstrap</a>, by <a href="https://twitter.com/mdo">@mdo</a>.</div>
+          <div>Pirmosios pagalbos teikimo vadovas <a href="https://www.kam.lt">www.kam.lt</a></div>
+        </div>
+        <div class="col-3 col-sm-4 col-md-4 col-lg-4">
+          <div>Pirmosios pagalbos atmintinė <a href="https://www.ld.lt/sites/default/files/uploads/pirmosios_pagalbos_atmintine.pdf">Lietuvos Raudonasis Kryžius, Lietuvos Draudimas</a></div>
+        </div>
+      </div>
     </footer>
   </div>
   <script src="js/main.js"></script>
