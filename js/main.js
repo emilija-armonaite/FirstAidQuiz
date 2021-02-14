@@ -172,6 +172,7 @@ function unclick() {
     for (let i = 0; i < optionLength; i++) {
         option.children[i].classList.add("answered");
         button.classList.remove("hide");
+        mainBox.style.height="100%";
     }
 }
 
@@ -194,8 +195,9 @@ function theEnd() {
     quiz.classList.add("hide");
     results.classList.remove("hide");
     mainBox.style.height = "100%";
+    results.style.height = "100%";
     footer.style.display = "relative";
-    correctAnswers.textContent = "Testas įveiktas! Teisingi atsakymai: " + rightAnswers + " iš " + questions.length;
+    correctAnswers.textContent = "Testas įveiktas! Viso teisingų atsakymų: " + rightAnswers + " iš " + questions.length;
 }
 
 // pabaigos puslapyje paspaudziant mygtuka, griztame i klausimus, anuliuojame surinkus rezultatus
