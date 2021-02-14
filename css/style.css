@@ -1,188 +1,187 @@
-
- /* Base structure */
+/* Base structure */
 
 html * {
-      font-family: 'Josefin Sans', sans-serif;
-      color: #44464a;
+    font-family: 'Josefin Sans', sans-serif;
+    color: #44464a;
 }
+/* html {
+    min-height: 100%;
+    position: relative;
+} */
+
 /* body */
 body {
-  background-image: url("../img/marcelo-leal-k7ll1hpdhFA-unsplash.jpg");
-  background-color: #cccccc;
-  width: auto;
-  height: auto;
-  background-repeat: initial;
-  background-size: cover;
-  height: 85%;
+    background-image: url("../img/marcelo-leal-k7ll1hpdhFA-unsplash.jpg");
+    background-color: #cccccc;
+    width: auto;
+    height: auto;
+    background-repeat: initial;
+    background-size: cover;
+    max-height: 100%;
+    margin: 0 0 40px;
+    /* bottom = footer height */
+    padding: 25px;
 }
 
 /* header - heart icon */
 @keyframes heartbeat {
-  0% {
-    transform: scale( .75);
-  }
-  20% {
-    transform: scale( 1);
-  }
-  40% {
-    transform: scale( .75);
-  }
-  60% {
-    transform: scale( 1);
-  }
-  80% {
-    transform: scale( .75);
-  }
-  100% {
-    transform: scale( .75);
-  }
+    0% {
+        transform: scale(.75);
+    }
+
+    20% {
+        transform: scale(1);
+    }
+
+    40% {
+        transform: scale(.75);
+    }
+
+    60% {
+        transform: scale(1);
+    }
+
+    80% {
+        transform: scale(.75);
+    }
+
+    100% {
+        transform: scale(.75);
+    }
 }
 
 #heart {
-  position: relative;
-  width: 80px;
-  height: 70px;
-  animation: heartbeat 1s infinite;
+    position: relative;
+    width: 80px;
+    height: 70px;
+    animation: heartbeat 1s infinite;
 }
 
 #heart::before,
 #heart::after {
-  position: absolute;
-  content: "";
-  left: 50px;
-  top: 0;
-  width: 50px;
-  height: 80px;
-  background-image: url("../img/heart-with-electrocardiogram.png"); 
-  border-radius: 50px 50px 0 0;
-  transform: rotate(-45deg);
-  transform-origin: 0 100%;
+    position: absolute;
+    content: "";
+    left: 50px;
+    top: 0;
+    width: 50px;
+    height: 80px;
+    background-image: url("../img/heart-with-electrocardiogram.png");
+    border-radius: 50px 50px 0 0;
+    transform: rotate(-45deg);
+    transform-origin: 0 100%;
 }
 
 #heart::after {
-  left: 0;
-  transform: rotate(45deg);
-  transform-origin: 100% 100%;
+    left: 0;
+    transform: rotate(45deg);
+    transform-origin: 100% 100%;
 }
 
 
 
 /* main */
 .main-box {
-  max-width: 800px;
-  height: 100%;
-  background-color: white;
-  opacity: 0.9;
-  text-align: center;
-  color: black;
-  border-radius: 1%;
-  padding: 10px;
-  margin-left: auto;
-  margin-right: auto;
-  margin-top: 2px;
-  margin-bottom: 2px;
+    max-width: 800px;
+    height: 100%;
+    background-color: white;
+    opacity: 0.9;
+    text-align: center;
+    color: black;
+    border-radius: 1%;
+    padding: 10px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 2px;
+    margin-bottom: 2px;
 }
 
 .main-box h1 {
-  font-size: 2.5rem;
-  line-height: 2.5rem;
-  letter-spacing: 0.8rem;
-  color: darkred;
+    font-size: 2.5rem;
+    line-height: 2.5rem;
+    letter-spacing: 0.8rem;
+    color: darkred;
 }
 
 .main-box img {
-  height: 12em;
+    height: 12em;
 
 }
 
 .btn.hide {
- display: none;
+    display: none;
 }
 
+.startPage.hide {
+    display: none;
+}
 
-
-/* .startPage::before,
-.startPage::after {
-  content: "";
-  clear: both;
-  display: table;
-
-} */
-
-
- .startPage.hide {
-  display: none;
- }
-
- /* quiz (question and options) */
+/* quiz (question and options) */
 
 .quiz.hide {
-  display: none;
+    display: none;
 }
 
 .question h4 {
-  font-size: 25px;
-  color: darkred;
-  padding: 20px;
-} 
-
-.options {
-  color: white;
+    font-size: 25px;
+    color: darkred;
+    padding: 20px;
 }
 
-.options .form-text{
-  text-align: left;
-  background-color: #d6d6d6;
-  padding: 15px;
-  font-size: 17px;
-  line-height: 20px;
-  border-radius: 8px;
-  color: #000000;
+.options {
+    color: white;
+}
+
+.options .form-text {
+    text-align: left;
+    background-color: #d6d6d6;
+    padding: 15px;
+    font-size: 17px;
+    line-height: 20px;
+    border-radius: 8px;
+    color: #000000;
 }
 
 .options div:hover {
-  background-color: darkgray;
+    background-color: darkgray;
 }
 
 .options .answered {
-  pointer-events: none;
+    pointer-events: none;
 }
 
 /* results */
 
 .results.hide {
-  display: none;
+    display: none;
 }
 
 .results {
-  height: 100%;
+    height: 100%;
 }
 
 table {
-  text-align: left;
+    text-align: left;
 }
 
 /* footer */
-
-/*     left: 0;
+footer{
+     text-align: center;
+    left: 0;
     bottom: 0;
-    right: 0; */
-/*     padding-bottom: 2px;
-    border: 20px; */
-/*     padding: 0em;
-    padding-top: 5em;
+    right: 0;
     text-align: center;
     font-size: 15px;
-    /* position: absolute; */
-/*     position: sticky;
-    width: 100%;
-    height: auto; */ */
-/* } */
-
-
-footer {
-    /* clear: both; */
     position: absolute;
-    height: 15px;
-    /* margin-top: -200px; */
+    width: 100%;
+    height: 40px;
+/*     text-align: center;
+    font-size: 15px;
+    position: absolute;
+    width: 100%;
+    left: 0;
+    bottom: 0;
+    height: 50px;
+    overflow: hidden; */
 }
+
+

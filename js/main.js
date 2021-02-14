@@ -1,5 +1,4 @@
-// kuriame objektu (klausimu) lista
-
+// sukuriame objektu (klausimu) lista
 const questions = [{
     question: "Įvyko nelaimingas atsitikimas, yra nukentėjusiųjų. Koks Jūsų pats pirmas veiksmas?",
     options: ["Pradedate daryti pirminį gaivinimą", "Bandote kalbėti su nukentėjusiuoju", "Apsidarote, įvertinate aplinką ir galimus pavojus", "Bėgate ieškoti išorinio automationio defibriliatoriaus"],
@@ -82,47 +81,55 @@ const questions = [{
     answer: 1,
 }, ];
 
+// kintamieji 
 const startQ = document.querySelector(".startPage");
 const quiz = document.querySelector(".quiz");
 const question = document.querySelector(".question h4");
 const option = document.querySelector(".options");
-const num = document.querySelector(".num");
 const results = document.querySelector(".results");
 const correctAnswers = document.querySelector(".correctAnswers");
 const button = document.querySelector(".btn.hide");
-
 let countQ = 0;
 let currentQ;
-let possibleQ = [];
-let possibleOpt = [];
+let allQ = [];
+let allOpt = [];
 
 
-// sukeliame visus galimus klausimaus i lista - possibleQ
-function setPossibleQ() {
+// pradedame klausimyna 
+function startQuiz() {
+    startQ.classList.add("hide");
+    quiz.classList.remove("hide");
+    setAllQ();
+    getNewQ();
+}
+
+
+// sukeliame visus klausimaus i lista - allQ
+function setAllQ() {
     const total = questions.length;
     for (let i = 0; i < total; i++) {
-        possibleQ.push(questions[i]);
+        allQ.push(questions[i]);
     }
 }
 
-// gauname klausima 
+// gauname nauja klausima 
 function getNewQ() {
-    const qNumber = possibleQ[0];
+    const qNumber = allQ[0];
     currentQ = qNumber;
     question.innerHTML = currentQ.question;
-    // gauname pozicija klausimo is possibleQ listo
-    const index = possibleQ.indexOf(qNumber);
-    // kad nesikartotu klausimai, tai istriname qNumber is possibleQ
-    possibleQ.splice(index, 1);
+    // gauname pozicija klausimo is allQ listo
+    const index = allQ.indexOf(qNumber);
+    // kad nesikartotu klausimai, tai istriname qNumber is allQ
+    allQ.splice(index, 1);
     //gauname klausimo pasirinkimus, pasirinkimju ilgi
     const optionLength = currentQ.options.length;
-    // sukeliame pasirinkimus i possibleOpt lista
+    // sukeliame pasirinkimus i allOpt lista
     for (let i = 0; i < optionLength; i++) {
-        possibleOpt.push(i);
+        allOpt.push(i);
     }
 
     option.innerHTML = "";
-    // atvaizduoti atsakymu variantus html
+    // atvaizduojami klausimu atsakymu variantai html
     for (let i = 0; i < optionLength; i++) {
         const opt = document.createElement("div");
         opt.innerHTML = currentQ.options[i];
@@ -166,17 +173,6 @@ function unclick() {
     }
 }
 
-//pakeiciame kursoriu i pointer, kai vartotojas uzeina ant pasirinkimo
-
-let setCursorToPointer = () => option.style.cursor = "pointer";
-
-//parodomi quiz rezultatai
-function theEnd() {
-    quiz.classList.add("hide");
-    results.classList.remove("hide");
-    correctAnswers.textContent = "Teisingi atsakymai: " + rightAnswers + " iš " + questions.length;
-}
-
 //kvieciame naujus klausimus
 function getNextQ() {
     if (countQ === questions.length) {
@@ -188,6 +184,17 @@ function getNextQ() {
     }
 }
 
+//pakeiciame kursoriu i pointer, kai vartotojas uzeina ant klausimo pasirinkimo
+let setCursorToPointer = () => option.style.cursor = "pointer";
+
+//parodomi klausimyno rezultatai (pabaigos puslapis)
+function theEnd() {
+    quiz.classList.add("hide");
+    results.classList.remove("hide");
+    correctAnswers.textContent = "Teisingi atsakymai: " + rightAnswers + " iš " + questions.length;
+}
+
+// pabaigos puslapyje paspaudziant mygtuka, griztame i klausimus, anuliuojame surinkus rezultatus
 function tryAgain() {
     results.classList.add("hide");
     startQ.classList.remove("hide");
@@ -195,13 +202,3 @@ function tryAgain() {
     let countQ = 0;
     startQuiz();
 }
-
-// pradeti quiz
-function startQuiz() {
-    startQ.classList.add("hide");
-    quiz.classList.remove("hide");
-    // gauname visus klausimus liste (possibleQ)
-    setPossibleQ();
-    // iskviesime nauja klausima
-    getNewQ();
-};
