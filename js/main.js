@@ -194,6 +194,7 @@ function theEnd() {
     quiz.classList.add("hide");
     results.classList.remove("hide");
     mainBox.style.height = "100%";
+    footer.style.display = "relative";
     correctAnswers.textContent = "Testas įveiktas! Teisingi atsakymai: " + rightAnswers + " iš " + questions.length;
 }
 
