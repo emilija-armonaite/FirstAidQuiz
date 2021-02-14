@@ -143,23 +143,20 @@ function getNewQ() {
     countQ++;
 }
 
-// gauname vartotojo paspaudima i console, pazymime vartotojo pasirinkima spalva (teisingai-zalia, neteisingai-raudona)
+// gauname vartotojo paspaudima, pazymime vartotojo pasirinkima spalva (teisingai-zalia, neteisingai-raudona)
 let rightAnswers = 0;
-
 function getResult(chosenOpt) {
     button.classList.add("hide");
     const id = parseInt(chosenOpt.id);
     if (id === currentQ.answer) {
-        console.log("Teisingai");
-        chosenOpt.style.backgroundColor = "green";
+        chosenOpt.style.backgroundColor = "#008000";
         rightAnswers++;
     } else {
-        console.log("Neteisingai");
-        chosenOpt.style.backgroundColor = "darkred";
+        chosenOpt.style.backgroundColor = "#8B0000";
         const optionLength = option.children.length;
         for (let i = 0; i < optionLength; i++) {
             if (parseInt(option.children[i].id) === currentQ.answer) {
-                option.children[i].style.backgroundColor = "green";
+                option.children[i].style.backgroundColor = "#008000";
             }
         }
     }
@@ -172,7 +169,7 @@ function unclick() {
     for (let i = 0; i < optionLength; i++) {
         option.children[i].classList.add("answered");
         button.classList.remove("hide");
-        mainBox.style.height="auto";
+        mainBox.style.height = "auto";
     }
 }
 
@@ -195,10 +192,8 @@ function theEnd() {
     quiz.classList.add("hide");
     results.classList.remove("hide");
     mainBox.style.height = "auto";
-    mainBox.style.position = "relative";
-    // results.style.height = "auto";
     footer.style.position = "fixed";
-    correctAnswers.textContent = "Testas įveiktas! Viso teisingų atsakymų: " + rightAnswers + " iš " + questions.length;
+    correctAnswers.textContent = "Testas įveiktas! Viso teisingų atsakymų: " + rightAnswers + " iš " + questions.length + "!";
 }
 
 // pabaigos puslapyje paspaudziant mygtuka, griztame i klausimus, anuliuojame surinkus rezultatus
