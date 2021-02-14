@@ -82,6 +82,7 @@ const questions = [{
 }, ];
 
 // kintamieji 
+const mainBox = document.querySelector(".main-box");
 const startQ = document.querySelector(".startPage");
 const quiz = document.querySelector(".quiz");
 const question = document.querySelector(".question h4");
@@ -89,6 +90,7 @@ const option = document.querySelector(".options");
 const results = document.querySelector(".results");
 const correctAnswers = document.querySelector(".correctAnswers");
 const button = document.querySelector(".btn.hide");
+const footer = document.querySelector("#footer");
 let countQ = 0;
 let currentQ;
 let allQ = [];
@@ -191,7 +193,8 @@ let setCursorToPointer = () => option.style.cursor = "pointer";
 function theEnd() {
     quiz.classList.add("hide");
     results.classList.remove("hide");
-    correctAnswers.textContent = "Teisingi atsakymai: " + rightAnswers + " iš " + questions.length;
+    mainBox.style.height = "100%";
+    correctAnswers.textContent = "Testas įveiktas! Teisingi atsakymai: " + rightAnswers + " iš " + questions.length;
 }
 
 // pabaigos puslapyje paspaudziant mygtuka, griztame i klausimus, anuliuojame surinkus rezultatus
