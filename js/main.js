@@ -1,9 +1,7 @@
-// sukuriame objektu (klausimu) lista
 const questions = [{
     question: "Įvyko nelaimingas atsitikimas, yra nukentėjusiųjų. Koks Jūsų pats pirmas veiksmas?",
     options: ["Pradedate daryti pirminį gaivinimą", "Bandote kalbėti su nukentėjusiuoju", "Apsidarote, įvertinate aplinką ir galimus pavojus", "Bėgate ieškoti išorinio automationio defibriliatoriaus"],
     answer: 2,
-    additionalInfo: "Prieš teikdami pirmąją pagalbą, įvertinkite situaciją ir įsitikinkite, kad tai yra saugu (jei situacija yra pavojinga Jūsų gyvybei ar sveikatai, pavyzdžiui: pravažiuojantis transportas, griūvantys, krentantys objektai, gaisras, elektra, kenksmingos medžiagos, nukentėjusysis yra agresyvus, galite užsikrėsti infekcine liga – šiais atvejais pirmiausia reikia užtikrinti saugumą)."
 }, {
     question: "Kodėl reikia įvertinti įvykio vietos saugumą? ",
     options: ["Siekiant įsitikinti, jog situacija nepavojinga gelbėtojo gyvybei ar sveikatai", "Siekiant užtikrinti nukentėjusiojo saugumą", "Siekiant išsiaiškinti nelaimingo atsitikimo/avarijos priežastis"],
@@ -12,7 +10,6 @@ const questions = [{
     question: "Įvertinus, kad aplinka saugi, einate prie nukentėjusiojo. Jis yra sąmoningas, atsakinėja į klausimus aiškiai ir rišliai. Ką darote toliau?",
     options: ["Pradedate daryti pirminį gaivinimą", "Nukentėjusįjį nuraminate, apžiūrite ir jei reikia, suteikiate pirmąją pagalbą, kviečiate GMP", "Staigiai transportuojate nukentėjusįjį į kitą vietą, net jei aplinka saugi", "Defibriliuojate"],
     answer: 1,
-    additionalInfo: "Nuraminkite jį; Stenkitės nejudinti, nebent aplinkoje tvyro pavojus nukentėjusiajam ar teikiančiam pagalbą; Apžiūrėkite nukentėjusįjį: pačiupinėkite jį nuo galvos iki kojų; Suteikite pirmąją pagalbą; Jeigu būtina, kvieskite greitąją medicinos pagalbą"
 }, {
     question: "Kaip padėti žmogui, ištiktam psichologinio streso?",
     options: ["Nuraminti, šiltai apkloti, pasakyti, kad jau atvyksta greitoji medicinos pagalba", "Nieko nedaryti, laukti, kol atvyks greitoji medicinos pagalba", "Sugirdyti raminanamųjų vaistų"],
@@ -21,7 +18,6 @@ const questions = [{
     question: "Įvertinus, kad aplinka saugi, einate prie nukentėjusiojo. Jis neatsako į jūsų užduodamus klausimus, yra nesąmoningas. Ką darote?",
     options: ["Pradedate gaivinimą, paprašote šalia esančio žmogaus (praeivio), kad kviestų GMP ir atneštų automatinį išorinį defibriliatorių (AID)", "Pradedate gaivinimą, tuo metu pats kviečiate greitąją medicinos pagalbą, net jei aplinkui daug žmonių, kurie tai galėtų padaryti", "Staigiai transportuojate nukentėjusįjį į kitą vietą, net jei aplinka saugi", "Bandote prakalbinti nukentėjusįjį"],
     answer: 0,
-    additionalInfo: "Kvieskite greitąją medicinos pagalbą, paprašykite pristatyti išorinį automatinį defibriliatorių; Pradėkite gaivinimą."
 }, {
     question: "Kaip įvertinti pagrindines gyvybines funkcijas?",
     options: [" Stebėti, ar kvėpuoja (stebėti, ar juda krūtinės ląsta, pajausti oro judėjimą skruostu)", "Pakalbinti („Kaip jaučiatės? Kas atsitiko?), stebėti, ar kvėpuoja (stebėti, ar juda krūtinės ląsta, pajausti oro judėjimą skruostu), čiuopti pulsą (miego arterijos srityje)", "Pakalbinti („Kaip jaučiatės? Kas atsitiko?), čiuopti pulsą (miego arterijos srityje). "],
@@ -34,7 +30,6 @@ const questions = [{
     question: "Paskambinus bendrosios pagalbos numeriu 112 negalima padėti ragelio, kol neleis operatorius.",
     options: ["Tiesa", "Netiesa"],
     answer: 0,
-    additionalInfo: "Nepadėkite ragelio, kol neleis operatorius – pokalbį turi baigti pagalbos tarnybos dispečeris. Kvalifikuoti specialistai skirtingose šalyse pasiruošę telefonu instruktuoti, kaip suteikti pirmąją pagalbą."
 }, {
     question: "Teisingas pradinio gaivinimo algoritmas.",
     options: ["Kraujotakos užtikrinimas (Circulation), kvėpavimo užtikrinimas (Breathing), kvėpavimo takų atvėrimas (Airway)", "Kvėpavimo takų atvėrimas (Airway), kraujotakos užtikrinimas (Circulation), kvėpavimo užtikrinimas (Breathing)", "Kvėpavimo takų atvėrimas (Airway), kvėpavimo užtikrinimas (Breathing), kraujotakos užtikrinimas (Circulation)"],
@@ -81,7 +76,7 @@ const questions = [{
     answer: 1,
 }, ];
 
-// kintamieji 
+
 const mainBox = document.querySelector(".main-box");
 const startQ = document.querySelector(".startPage");
 const quiz = document.querySelector(".quiz");
@@ -104,7 +99,7 @@ function startQuiz() {
     getNewQ();
 }
 
-// sukeliame visus klausimaus i lista - allQ
+// sukeliame visus klausimus i lista - allQ
 function setAllQ() {
     const total = questions.length;
     for (let i = 0; i < total; i++) {
@@ -194,7 +189,7 @@ function theEnd() {
     correctAnswers.textContent = "Testas įveiktas! Viso teisingų atsakymų: " + rightAnswers + " iš " + questions.length + "!";
 }
 
-// pabaigos puslapyje paspaudziant mygtuka, griztame i klausimus, anuliuojame surinkus rezultatus
+// pabaigos puslapyje paspaudziant mygtuka, griztame i klausimus, anuliuojame surinktus rezultatus
 function tryAgain() {
     results.classList.add("hide");
     startQ.classList.remove("hide");
