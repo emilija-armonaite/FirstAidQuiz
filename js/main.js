@@ -90,7 +90,6 @@ const option = document.querySelector(".options");
 const results = document.querySelector(".results");
 const correctAnswers = document.querySelector(".correctAnswers");
 const button = document.querySelector(".btn.hide");
-const footer = document.querySelector("#footer");
 let countQ = 0;
 let currentQ;
 let allQ = [];
@@ -123,7 +122,7 @@ function getNewQ() {
     const index = allQ.indexOf(qNumber);
     // kad nesikartotu klausimai, tai istriname qNumber is allQ
     allQ.splice(index, 1);
-    //gauname klausimo pasirinkimus, pasirinkimju ilgi
+    //gauname klausimo pasirinkimus, ju skaiciu
     const optionLength = currentQ.options.length;
     // sukeliame pasirinkimus i allOpt lista
     for (let i = 0; i < optionLength; i++) {
@@ -176,7 +175,6 @@ function unclick() {
 //kvieciame naujus klausimus
 function getNextQ() {
     if (countQ === questions.length) {
-        console.log("Klausimų pabaiga");
         theEnd();
     } else {
         getNewQ();
@@ -189,6 +187,7 @@ let setCursorToPointer = () => option.style.cursor = "pointer";
 
 //parodomi klausimyno rezultatai (pabaigos puslapis)
 function theEnd() {
+    const footer = document.querySelector("#footer");
     quiz.classList.add("hide");
     results.classList.remove("hide");
     mainBox.style.height = "auto";
