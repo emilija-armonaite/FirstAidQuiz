@@ -104,7 +104,6 @@ function startQuiz() {
     getNewQ();
 }
 
-
 // sukeliame visus klausimaus i lista - allQ
 function setAllQ() {
     const total = questions.length;
