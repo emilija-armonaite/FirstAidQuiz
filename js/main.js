@@ -76,20 +76,18 @@ const questions = [{
     answer: 1,
 }, ];
 
-
-const mainBox = document.querySelector(".main-box");
-const startQ = document.querySelector(".startPage");
-const quiz = document.querySelector(".quiz");
-const question = document.querySelector(".question h4");
-const option = document.querySelector(".options");
-const results = document.querySelector(".results");
-const correctAnswers = document.querySelector(".correctAnswers");
-const button = document.querySelector(".btn.hide");
-let countQ = 0;
-let currentQ;
-let allQ = [];
-let allOpt = [];
-
+    const mainBox = document.querySelector(".main-box");
+    const startQ = document.querySelector(".startPage");
+    const quiz = document.querySelector(".quiz");
+    const question = document.querySelector(".question h4");
+    const option = document.querySelector(".options");
+    const results = document.querySelector(".results");
+    const correctAnswers = document.querySelector(".correctAnswers");
+    const button = document.querySelector(".btn.hide");
+    let countQ = 0;
+    let currentQ;
+    let allQ = [];
+    let allOpt = [];
 
 // pradedame klausimyna 
 function startQuiz() {
@@ -138,6 +136,7 @@ function getNewQ() {
 
 // gauname vartotojo paspaudima, pazymime vartotojo pasirinkima spalva (teisingai-zalia, neteisingai-raudona)
 let rightAnswers = 0;
+
 function getResult(chosenOpt) {
     button.classList.add("hide");
     const id = parseInt(chosenOpt.id);
@@ -185,7 +184,8 @@ function theEnd() {
     quiz.classList.add("hide");
     results.classList.remove("hide");
     mainBox.style.height = "auto";
-    footer.style.position = "fixed";
+    footer.style.display = "none";
+    // footer.style.position = "relative";
     correctAnswers.textContent = "Testas įveiktas! Viso teisingų atsakymų: " + rightAnswers + " iš " + questions.length + "!";
 }
 

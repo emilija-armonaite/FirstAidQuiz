@@ -162,7 +162,7 @@ td {
 }
 
 /* footer */
-footer {
+#footer {
     text-align: center;
     left: 0;
     bottom: 0;
@@ -170,9 +170,10 @@ footer {
     font-size: 13px;
     position: absolute;
     z-index: -1;
+    margin: 5px;
 }
 
 footer a:hover {
-    color:  #D3D3D3;
+    color: #D3D3D3;
 }
 
